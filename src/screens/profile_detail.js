@@ -120,7 +120,6 @@ export default class profile_detail extends Component {
                             this.state.dataRepo.length !== 0
                                 ?
                                 this.state.dataRepo.slice(0, this.state.dataSlice).map(val => {
-                                    console.log(val.url);
                                     return (
                                         <TouchableOpacity key={val.id} onPress={() => Linking.openURL(val.html_url)}>
                                             <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10, marginVertical: 8 }}>
@@ -143,7 +142,7 @@ export default class profile_detail extends Component {
                                 ?
                                 null
                                 :
-                                this.state.dataSlice <= this.state.dataRepo.length
+                                this.state.dataSlice < this.state.dataRepo.length
                                     ?
                                     <TouchableOpacity onPress={() => { this.setState({ dataSlice: this.state.dataSlice + 4 }) }}>
                                         <Text style={{ textAlign: 'center', padding: 10, fontSize: 17, color: 'skyblue' }}>See More...</Text>
